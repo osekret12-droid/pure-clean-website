@@ -8,11 +8,25 @@
 
 <meta name="description" content="Pure Clean offers affordable and professional cleaning services in Bradford. Domestic cleaning, deep cleaning and end of tenancy cleaning. Call 07709 214983 for a free quote.">
 
-<meta name="keywords" content="Cleaner in Bradford, Cleaning services Bradford, Domestic cleaning Bradford, End of tenancy cleaning Bradford, Deep cleaning Bradford">
-
-<meta name="author" content="Pure Clean Bradford">
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3062/3062634.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Pure Clean Bradford",
+ "image": "",
+ "telephone": "07709214983",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Bradford",
+   "addressRegion": "West Yorkshire",
+   "addressCountry": "UK"
+ }
+}
+</script>
 
 <style>
 body {
@@ -20,10 +34,23 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f8fbff;
     color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero {
-    background: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80") no-repeat center center/cover;
+    background: url("https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=1600") no-repeat center/cover;
     height: 90vh;
     display: flex;
     align-items: center;
@@ -40,39 +67,11 @@ body {
 
 .hero h1 {
     font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 22px;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 35px;
-    background: #0d6efd;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #0b5ed7;
 }
 
 section {
     padding: 80px 20px;
     text-align: center;
-}
-
-h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
 }
 
 .services {
@@ -87,41 +86,55 @@ h2 {
     padding: 30px;
     width: 300px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* Gallery */
+/* Auto-scroll gallery */
 .gallery {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
-    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 30s linear infinite;
 }
 
 .gallery img {
     width: 300px;
     border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
-/* Serving section */
-.serving {
-    background: #eef6ff;
+.gallery img:hover {
+    transform: scale(1.08);
 }
 
-.testimonials {
-    background: #f0f7ff;
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-.quote {
-    max-width: 600px;
-    margin: 20px auto;
-    font-style: italic;
+/* Before After */
+.before-after {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.before-after img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .cta {
@@ -141,14 +154,29 @@ input, textarea {
     margin: 8px 0 16px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #0d6efd;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    border: 0;
 }
 
 footer {
     background: #111;
     color: white;
     padding: 20px;
-    text-align: center;
 }
 
 .sticky-call {
@@ -160,19 +188,6 @@ footer {
     padding: 15px 25px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-@media (max-width: 768px) {
-    .services {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
 }
 </style>
 </head>
@@ -180,85 +195,74 @@ footer {
 <body>
 
 <header class="hero">
-    <div class="overlay">
-        <h1>Pure Clean Bradford</h1>
-        <p>Trusted & Affordable Cleaning Services in Bradford</p>
-        <a href="tel:07709214983" class="btn">Call 07709 214983</a>
-    </div>
+<div class="overlay">
+<h1>Pure Clean Bradford</h1>
+<p>Trusted & Affordable Cleaning Services in Bradford</p>
+</div>
 </header>
 
-<section>
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Domestic Cleaning</h3>
-            <p>Weekly, fortnightly or one-off cleans tailored to your home.</p>
-            <strong>From £18 per hour</strong>
-        </div>
-
-        <div class="card">
-            <h3>Deep Cleaning</h3>
-            <p>Full property deep clean perfect for spring cleans.</p>
-            <strong>From £120</strong>
-        </div>
-
-        <div class="card">
-            <h3>End of Tenancy</h3>
-            <p>Professional move-out cleaning services in Bradford.</p>
-            <strong>From £150</strong>
-        </div>
-    </div>
+<section class="fade">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card">Domestic Cleaning<br><strong>From £18/hr</strong></div>
+<div class="card">Deep Cleaning<br><strong>From £120</strong></div>
+<div class="card">End of Tenancy<br><strong>From £150</strong></div>
+</div>
 </section>
 
-<section>
-    <h2>Our Recent Cleaning Work</h2>
-    <div class="gallery">
-        <img src="https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cleaner wiping kitchen counter">
-
-        <img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional bathroom cleaning">
-
-        <img src="https://images.pexels.com/photos/6197121/pexels-photo-6197121.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Vacuuming living room">
-
-        <img src="https://images.pexels.com/photos/4107096/pexels-photo-4107096.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Office cleaning service">
-
-        <img src="https://images.pexels.com/photos/4099467/pexels-photo-4099467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cleaning kitchen surface">
-    </div>
+<section class="fade">
+<h2>Our Work</h2>
+<div class="gallery">
+<div class="gallery-track">
+<img src="https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=800">
+<img src="https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=800">
+<img src="https://images.pexels.com/photos/6197121/pexels-photo-6197121.jpeg?auto=compress&cs=tinysrgb&w=800">
+<img src="https://images.pexels.com/photos/4107096/pexels-photo-4107096.jpeg?auto=compress&cs=tinysrgb&w=800">
+<img src="https://images.pexels.com/photos/4099467/pexels-photo-4099467.jpeg?auto=compress&cs=tinysrgb&w=800">
+</div>
+</div>
 </section>
 
-
-<section class="serving">
-    <h2>Serving Bradford & Surrounding Areas</h2>
-    <p>Pure Clean proudly provides professional cleaning services across Bradford including BD1, BD2, BD3, BD4, BD5 and surrounding West Yorkshire areas.</p>
-    <p>We specialise in domestic cleaning, deep cleaning and end of tenancy cleaning in Bradford.</p>
+<section class="fade">
+<h2>Before & After</h2>
+<div class="before-after">
+<img src="https://images.pexels.com/photos/4239034/pexels-photo-4239034.jpeg?auto=compress&cs=tinysrgb&w=800">
+<img src="https://images.pexels.com/photos/4108716/pexels-photo-4108716.jpeg?auto=compress&cs=tinysrgb&w=800">
+</div>
 </section>
 
-<section class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <p class="quote">“Reliable, professional and affordable cleaning service in Bradford.” – Sarah M.</p>
-    <p class="quote">“Best cleaner in Bradford! Highly recommended.” – James T.</p>
+<section class="fade">
+<h2>Find Us in Bradford</h2>
+<iframe src="https://www.google.com/maps?q=Bradford+UK&output=embed"></iframe>
 </section>
 
-<section class="cta">
-    <h2>Get Your Free Quote</h2>
-    <form action="https://formspree.io/f/xlgwgaqk" method="POST">
-        <label>Your Name</label>
-        <input type="text" name="name" required>
-
-        <label>Your Email</label>
-        <input type="email" name="email" required>
-
-        <label>Your Message</label>
-        <textarea name="message" rows="4" required></textarea>
-
-        <button type="submit" class="btn">Send Message</button>
-    </form>
+<section class="cta fade">
+<h2>Get Your Free Quote</h2>
+<form action="https://formspree.io/f/xlgwgaqk" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
 </section>
 
 <footer>
-    © 2026 Pure Clean Bradford | Professional Cleaner in Bradford
+© 2026 Pure Clean Bradford
 </footer>
 
 <a href="tel:07709214983" class="sticky-call">Call Now</a>
+
+<script>
+const fades = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  fades.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('visible');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
