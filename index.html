@@ -52,7 +52,6 @@ nav {
 }
 
 .call-btn:hover {
-    background: #132f57;
     transform: translateY(-3px);
 }
 
@@ -62,6 +61,7 @@ nav {
     linear-gradient(rgba(11,31,58,0.8), rgba(11,31,58,0.8)),
     url("https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=1600")
     no-repeat center/cover;
+
     height: 85vh;
     display: flex;
     align-items: center;
@@ -80,7 +80,6 @@ nav {
 .hero p {
     font-size: 20px;
     margin-bottom: 35px;
-    opacity: 0.9;
 }
 
 .btn-primary {
@@ -95,7 +94,6 @@ nav {
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 /* SECTIONS */
@@ -129,14 +127,6 @@ h2 {
 
 .card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-}
-
-.card strong {
-    display: block;
-    margin-top: 15px;
-    font-size: 18px;
-    color: #0b1f3a;
 }
 
 /* GALLERY */
@@ -155,6 +145,36 @@ h2 {
 
 .gallery img:hover {
     transform: scale(1.08);
+}
+
+/* TESTIMONIALS */
+.testimonial-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background: white;
+    padding: 35px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.testimonial:hover {
+    transform: translateY(-8px);
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial strong {
+    color: #0b1f3a;
 }
 
 /* MAP */
@@ -193,14 +213,9 @@ button {
     border: none;
     font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-button:hover {
-    transform: translateY(-3px);
-}
-
-/* FLOATING CALL BUTTON */
+/* FLOATING CALL */
 .floating-call {
     position: fixed;
     bottom: 25px;
@@ -212,29 +227,10 @@ button:hover {
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    transition: 0.3s;
 }
 
-.floating-call:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-}
-
-/* FADE IN ON SCROLL */
-.fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
-}
-
-.fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* MOBILE */
 @media(max-width:768px){
-    .services { flex-direction: column; align-items: center; }
+    .services, .testimonial-grid { flex-direction: column; align-items: center; }
     .hero h1 { font-size: 36px; }
 }
 </style>
@@ -257,7 +253,7 @@ button:hover {
 </div>
 </header>
 
-<section class="fade">
+<section>
 <h2>Our Services</h2>
 <div class="services">
 <div class="card">Domestic Cleaning<strong>From £18/hr</strong></div>
@@ -266,7 +262,7 @@ button:hover {
 </div>
 </section>
 
-<section class="fade">
+<section>
 <h2>Our Work</h2>
 <div class="gallery">
 <img src="https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=800">
@@ -275,12 +271,30 @@ button:hover {
 </div>
 </section>
 
-<section class="fade">
+<section>
+<h2>What Our Customers Say</h2>
+<div class="testimonial-grid">
+<div class="testimonial">
+<p>"Reliable, professional and affordable cleaning service in Bradford."</p>
+<strong>— Sarah M.</strong>
+</div>
+<div class="testimonial">
+<p>"Best cleaner in Bradford! Highly recommended."</p>
+<strong>— James T.</strong>
+</div>
+<div class="testimonial">
+<p>"Very detailed and trustworthy team. My house looks brand new every time."</p>
+<strong>— Aisha R.</strong>
+</div>
+</div>
+</section>
+
+<section>
 <h2>Find Us in Bradford</h2>
 <iframe src="https://www.google.com/maps?q=Bradford+UK&output=embed"></iframe>
 </section>
 
-<section class="cta fade" id="quote">
+<section class="cta" id="quote">
 <h2>Request Your Free Quote</h2>
 <form action="https://formspree.io/f/xlgwgaqk" method="POST">
 <input type="text" name="name" placeholder="Your Name" required>
@@ -295,18 +309,6 @@ button:hover {
 </footer>
 
 <a href="tel:07709214983" class="floating-call">Call Now</a>
-
-<script>
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            el.classList.add('visible');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
