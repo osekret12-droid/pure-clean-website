@@ -5,253 +5,265 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Pure Clean Bradford | Professional Cleaning Services</title>
-
-<meta name="description" content="Professional domestic, deep and end of tenancy cleaning services across Bradford. Fully insured and trusted local cleaning experts.">
+<meta name="description" content="Professional domestic, deep and end of tenancy cleaning services across Bradford. Fully insured & trusted local cleaning experts.">
 
 <link rel="icon" href="logo.png.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f4f7fb;
-    color: #1a1a1a;
-    scroll-behavior: smooth;
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#f4f7fb;
+    color:#1a1a1a;
+    scroll-behavior:smooth;
 }
 
 /* NAVBAR */
 nav {
-    background: white;
-    padding: 20px 60px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background:white;
+    padding:20px 60px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.logo {
-    height: 70px;
-}
+.logo { height:70px; }
 
-.menu {
-    position: relative;
-    display: inline-block;
-}
+.menu { position:relative; }
 
 .menu-button {
-    background: #0b1f3a;
-    color: white;
-    padding: 10px 22px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
+    background:#0b1f3a;
+    color:white;
+    padding:10px 22px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
 }
 
 .dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    background: white;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    min-width: 180px;
+    display:none;
+    position:absolute;
+    right:0;
+    background:white;
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+    border-radius:12px;
+    overflow:hidden;
 }
 
 .dropdown a {
-    display: block;
-    padding: 12px 18px;
-    text-decoration: none;
-    color: #0b1f3a;
+    display:block;
+    padding:12px 18px;
+    text-decoration:none;
+    color:#0b1f3a;
 }
 
-.dropdown a:hover {
-    background: #f1f5fb;
-}
+.dropdown a:hover { background:#f1f5fb; }
 
-.menu:hover .dropdown {
-    display: block;
-}
+.menu:hover .dropdown { display:block; }
 
-/* HERO */
+/* HERO SLIDESHOW */
 .hero {
-    background:
-    linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
-    url("https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=1600")
-    no-repeat center/cover;
-
-    height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 20px;
+    position:relative;
+    height:85vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
 }
+
+.hero-slides {
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 1.5s ease-in-out;
+}
+
+.slide:nth-child(1) {
+    background-image:linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    url("https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=1600");
+}
+
+.slide:nth-child(2) {
+    background-image:linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    url("https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1600");
+}
+
+.slide:nth-child(3) {
+    background-image:linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    url("https://images.pexels.com/photos/6197121/pexels-photo-6197121.jpeg?auto=compress&cs=tinysrgb&w=1600");
+}
+
+.slide.active { opacity:1; }
+
+.hero-content { position:relative; z-index:2; }
 
 .hero h1 {
-    font-size: 56px;
-    font-weight: 800;
+    font-size:56px;
+    font-weight:800;
 }
 
-.hero p {
-    margin: 20px 0 30px;
-    font-size: 20px;
+.hero p { margin:20px 0; font-size:20px; }
+
+.brand-line {
+    font-size:15px;
+    margin-bottom:25px;
+    opacity:0.9;
 }
 
 .btn-primary {
-    background: white;
-    color: #0b1f3a;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
+    background:white;
+    color:#0b1f3a;
+    padding:15px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
 }
 
 /* TRUST STRIP */
 .trust-strip {
-    background: #0b1f3a;
-    color: white;
-    padding: 18px;
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 1px;
+    background:#0b1f3a;
+    color:white;
+    padding:18px;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:1px;
 }
 
 /* SECTIONS */
 section {
-    padding: 100px 20px;
-    text-align: center;
+    padding:100px 20px;
+    text-align:center;
 }
 
-section:nth-child(even) {
-    background: white;
-}
+section:nth-child(even) { background:white; }
 
 h2 {
-    font-size: 34px;
-    margin-bottom: 50px;
-    color: #0b1f3a;
-    position: relative;
+    font-size:34px;
+    margin-bottom:50px;
+    color:#0b1f3a;
 }
 
 h2::after {
-    content: "";
-    width: 60px;
-    height: 3px;
-    background: #0b1f3a;
-    display: block;
-    margin: 15px auto 0;
+    content:"";
+    width:60px;
+    height:3px;
+    background:#0b1f3a;
+    display:block;
+    margin:15px auto 0;
 }
 
 /* SERVICES */
 .services {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
 }
 
 .card {
-    background: white;
-    padding: 40px;
-    width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    background:white;
+    padding:40px;
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-}
+.card:hover { transform:translateY(-10px); }
 
 /* TESTIMONIALS */
 .testimonial-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
 }
 
 .testimonial {
-    background: #ffffff;
-    padding: 35px;
-    width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    background:white;
+    padding:35px;
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
 }
 
-.stars {
-    color: gold;
-    margin-bottom: 10px;
-}
+.stars { color:gold; margin-bottom:10px; }
 
 /* MAP */
 iframe {
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-    border: 0;
+    width:100%;
+    height:350px;
+    border-radius:20px;
+    border:0;
 }
 
 /* CTA */
 .cta {
-    background: #0b1f3a;
-    color: white;
+    background:#0b1f3a;
+    color:white;
 }
 
-.cta p {
-    margin-bottom: 30px;
-}
+.cta p { margin-bottom:25px; }
 
 form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
+    max-width:600px;
+    margin:0 auto;
+    text-align:left;
 }
 
 input, textarea {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0 20px;
-    border-radius: 10px;
-    border: none;
+    width:100%;
+    padding:14px;
+    margin:10px 0 20px;
+    border-radius:10px;
+    border:none;
 }
 
 button {
-    background: white;
-    color: #0b1f3a;
-    padding: 15px 40px;
-    border-radius: 50px;
-    border: none;
-    font-weight: 700;
+    background:white;
+    color:#0b1f3a;
+    padding:15px 40px;
+    border-radius:50px;
+    border:none;
+    font-weight:700;
 }
 
 /* FLOATING CALL */
 .floating-call {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #0b1f3a;
-    color: white;
-    padding: 15px 28px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#0b1f3a;
+    color:white;
+    padding:15px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 @media(max-width:768px){
-    .services, .testimonial-grid { flex-direction: column; align-items: center; }
-    .hero h1 { font-size: 36px; }
+    .services, .testimonial-grid { flex-direction:column; align-items:center; }
+    .hero h1 { font-size:36px; }
 }
 </style>
 </head>
@@ -259,24 +271,31 @@ button {
 <body>
 
 <nav>
-    <div class="nav-container">
-        <img src="logo.png.png" class="logo">
-        <div class="menu">
-            <div class="menu-button">Menu</div>
-            <div class="dropdown">
-                <a href="#">Home</a>
-                <a href="#services">Services</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#quote">Contact</a>
-            </div>
-        </div>
-    </div>
+<div class="nav-container">
+<img src="logo.png.png" class="logo">
+<div class="menu">
+<div class="menu-button">Menu</div>
+<div class="dropdown">
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#quote">Contact</a>
+</div>
+</div>
+</div>
 </nav>
 
 <header class="hero">
-<div>
+<div class="hero-slides">
+<div class="slide active"></div>
+<div class="slide"></div>
+<div class="slide"></div>
+</div>
+
+<div class="hero-content">
 <h1>Professional Cleaning Services in Bradford</h1>
 <p>Reliable • Affordable • Fully Insured</p>
+<div class="brand-line">Trusted Local Experts | Call 07709 214983 Today</div>
 <a href="#quote" class="btn-primary">Get Free Quote</a>
 </div>
 </header>
@@ -336,6 +355,17 @@ Fully Insured • Background Checked • 5-Star Rated • 100% Satisfaction Guar
 </footer>
 
 <a href="tel:07709214983" class="floating-call">Call Now</a>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let current=0;
+function showNext(){
+slides[current].classList.remove('active');
+current=(current+1)%slides.length;
+slides[current].classList.add('active');
+}
+setInterval(showNext,5000);
+</script>
 
 </body>
 </html>
