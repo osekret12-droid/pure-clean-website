@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pure Clean Bradford | Professional Cleaning Services</title>
+
+<meta name="description" content="Pure Clean offers affordable and professional cleaning services in Bradford. Domestic cleaning, deep cleaning and end of tenancy cleaning. Call 07709 214983 for a free quote.">
+
+<meta name="keywords" content="Cleaner in Bradford, Cleaning services Bradford, Domestic cleaning Bradford, End of tenancy cleaning Bradford, Deep cleaning Bradford">
+
+<meta name="author" content="Pure Clean Bradford">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -32,7 +39,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 55px;
+    font-size: 50px;
     margin-bottom: 20px;
 }
 
@@ -44,8 +51,8 @@ body {
 .btn {
     display: inline-block;
     padding: 15px 35px;
-    background: white;
-    color: #0d6efd;
+    background: #0d6efd;
+    color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
@@ -55,7 +62,7 @@ body {
 }
 
 .btn:hover {
-    background: #e6f0ff;
+    background: #0b5ed7;
 }
 
 section {
@@ -88,8 +95,27 @@ h2 {
     transform: translateY(-8px);
 }
 
-.testimonials {
+/* Gallery */
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.gallery img {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Serving section */
+.serving {
     background: #eef6ff;
+}
+
+.testimonials {
+    background: #f0f7ff;
 }
 
 .quote {
@@ -156,7 +182,7 @@ footer {
 <header class="hero">
     <div class="overlay">
         <h1>Pure Clean Bradford</h1>
-        <p>Trusted & Affordable Cleaning Services for Homes & Offices</p>
+        <p>Trusted & Affordable Cleaning Services in Bradford</p>
         <a href="tel:07709214983" class="btn">Call 07709 214983</a>
     </div>
 </header>
@@ -165,35 +191,49 @@ footer {
     <h2>Our Services</h2>
     <div class="services">
         <div class="card">
-            <h3>🏠 Domestic Cleaning</h3>
+            <h3>Domestic Cleaning</h3>
             <p>Weekly, fortnightly or one-off cleans tailored to your home.</p>
             <strong>From £18 per hour</strong>
         </div>
 
         <div class="card">
-            <h3>✨ Deep Cleaning</h3>
+            <h3>Deep Cleaning</h3>
             <p>Full property deep clean perfect for spring cleans.</p>
             <strong>From £120</strong>
         </div>
 
         <div class="card">
-            <h3>🔑 End of Tenancy</h3>
-            <p>Professional move-out cleaning to secure your deposit.</p>
+            <h3>End of Tenancy</h3>
+            <p>Professional move-out cleaning services in Bradford.</p>
             <strong>From £150</strong>
         </div>
     </div>
 </section>
 
+<section>
+    <h2>Our Recent Cleaning Work</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1595433562696-7d68490d9a08?auto=format&fit=crop&w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=800&q=80">
+    </div>
+</section>
+
+<section class="serving">
+    <h2>Serving Bradford & Surrounding Areas</h2>
+    <p>Pure Clean proudly provides professional cleaning services across Bradford including BD1, BD2, BD3, BD4, BD5 and surrounding West Yorkshire areas.</p>
+    <p>We specialise in domestic cleaning, deep cleaning and end of tenancy cleaning in Bradford.</p>
+</section>
+
 <section class="testimonials">
     <h2>What Our Customers Say</h2>
-    <p class="quote">“Absolutely fantastic service. Reliable and affordable. Highly recommend Pure Clean in Bradford!” – Sarah M.</p>
-    <p class="quote">“Professional end of tenancy clean. Got my full deposit back!” – James T.</p>
+    <p class="quote">“Reliable, professional and affordable cleaning service in Bradford.” – Sarah M.</p>
+    <p class="quote">“Best cleaner in Bradford! Highly recommended.” – James T.</p>
 </section>
 
 <section class="cta">
     <h2>Get Your Free Quote</h2>
-    <p>Fill out the form below and we’ll get back to you quickly.</p>
-
     <form action="https://formspree.io/f/xlgwgaqk" method="POST">
         <label>Your Name</label>
         <input type="text" name="name" required>
@@ -209,7 +249,7 @@ footer {
 </section>
 
 <footer>
-    © 2026 Pure Clean | Professional Cleaner in Bradford
+    © 2026 Pure Clean Bradford | Professional Cleaner in Bradford
 </footer>
 
 <a href="tel:07709214983" class="sticky-call">Call Now</a>
