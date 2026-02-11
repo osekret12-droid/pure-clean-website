@@ -18,37 +18,50 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f4f7fb;
     color: #1a1a1a;
+    scroll-behavior: smooth;
 }
 
 /* NAVBAR */
 nav {
-    background: #0b1f3a;
-    padding: 18px 40px;
+    background: white;
+    padding: 20px 60px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-nav img {
-    height: 55px;
+.logo {
+    height: 75px;
 }
 
-nav a {
+.call-btn {
+    background: #0b1f3a;
     color: white;
     text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 40px;
     font-weight: 600;
-    background: rgba(255,255,255,0.15);
-    padding: 10px 22px;
-    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.call-btn:hover {
+    background: #132f57;
+    transform: translateY(-3px);
 }
 
 /* HERO */
 .hero {
     background:
-    linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    linear-gradient(rgba(11,31,58,0.8), rgba(11,31,58,0.8)),
     url("https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=1600")
     no-repeat center/cover;
-
     height: 85vh;
     display: flex;
     align-items: center;
@@ -59,33 +72,41 @@ nav a {
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 56px;
     font-weight: 800;
+    margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 20px;
-    margin: 20px 0;
+    margin-bottom: 35px;
+    opacity: 0.9;
 }
 
-.btn {
+.btn-primary {
     background: white;
     color: #0b1f3a;
-    padding: 15px 35px;
+    padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 /* SECTIONS */
 section {
-    padding: 90px 20px;
+    padding: 100px 20px;
     text-align: center;
 }
 
 h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
+    font-size: 36px;
+    margin-bottom: 50px;
     color: #0b1f3a;
 }
 
@@ -94,27 +115,46 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 35px;
+    gap: 40px;
 }
 
 .card {
     background: white;
-    padding: 35px;
-    width: 300px;
+    padding: 40px;
+    width: 320px;
     border-radius: 25px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+.card strong {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #0b1f3a;
 }
 
 /* GALLERY */
 .gallery {
     display: flex;
-    overflow-x: auto;
     gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .gallery img {
     width: 320px;
     border-radius: 20px;
+    transition: 0.4s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
 }
 
 /* MAP */
@@ -148,22 +188,54 @@ input, textarea {
 button {
     background: white;
     color: #0b1f3a;
-    padding: 15px 35px;
+    padding: 16px 40px;
     border-radius: 50px;
     border: none;
     font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* FOOTER */
-footer {
-    background: #071426;
+button:hover {
+    transform: translateY(-3px);
+}
+
+/* FLOATING CALL BUTTON */
+.floating-call {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #0b1f3a;
     color: white;
-    padding: 25px;
+    padding: 15px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: 0.3s;
 }
 
+.floating-call:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* FADE IN ON SCROLL */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
 @media(max-width:768px){
     .services { flex-direction: column; align-items: center; }
-    .hero h1 { font-size: 34px; }
+    .hero h1 { font-size: 36px; }
 }
 </style>
 </head>
@@ -171,28 +243,30 @@ footer {
 <body>
 
 <nav>
-    <img src="logo.png.png" alt="Pure Clean Bradford Logo">
-    <a href="tel:07709214983">Call 07709 214983</a>
+    <div class="nav-container">
+        <img src="logo.png.png" alt="Pure Clean Bradford Logo" class="logo">
+        <a href="tel:07709214983" class="call-btn">Call 07709 214983</a>
+    </div>
 </nav>
 
 <header class="hero">
 <div>
 <h1>Professional Cleaning Services in Bradford</h1>
 <p>Reliable • Affordable • Trusted Local Experts</p>
-<a href="#quote" class="btn">Get Free Quote</a>
+<a href="#quote" class="btn-primary">Get Free Quote</a>
 </div>
 </header>
 
-<section>
+<section class="fade">
 <h2>Our Services</h2>
 <div class="services">
-<div class="card">Domestic Cleaning<br><strong>From £18/hr</strong></div>
-<div class="card">Deep Cleaning<br><strong>From £120</strong></div>
-<div class="card">End of Tenancy Cleaning<br><strong>From £150</strong></div>
+<div class="card">Domestic Cleaning<strong>From £18/hr</strong></div>
+<div class="card">Deep Cleaning<strong>From £120</strong></div>
+<div class="card">End of Tenancy Cleaning<strong>From £150</strong></div>
 </div>
 </section>
 
-<section>
+<section class="fade">
 <h2>Our Work</h2>
 <div class="gallery">
 <img src="https://images.pexels.com/photos/4108710/pexels-photo-4108710.jpeg?auto=compress&cs=tinysrgb&w=800">
@@ -201,12 +275,12 @@ footer {
 </div>
 </section>
 
-<section>
+<section class="fade">
 <h2>Find Us in Bradford</h2>
 <iframe src="https://www.google.com/maps?q=Bradford+UK&output=embed"></iframe>
 </section>
 
-<section class="cta" id="quote">
+<section class="cta fade" id="quote">
 <h2>Request Your Free Quote</h2>
 <form action="https://formspree.io/f/xlgwgaqk" method="POST">
 <input type="text" name="name" placeholder="Your Name" required>
@@ -219,6 +293,20 @@ footer {
 <footer>
 © 2026 Pure Clean Bradford
 </footer>
+
+<a href="tel:07709214983" class="floating-call">Call Now</a>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('visible');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
